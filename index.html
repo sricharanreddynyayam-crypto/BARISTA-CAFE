@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Urban Alchemist — Premium 24x7 Café | Madhapur, Hyderabad</title>
+  <meta name="description" content="The Urban Alchemist is a premium 24x7 café in Madhapur, Hyderabad. Specialty coffee, artisan food, high-speed WiFi, and the perfect workspace for professionals and students.">
+  <meta name="keywords" content="café Hyderabad, coffee shop Madhapur, 24x7 café, coworking café, specialty coffee Hyderabad">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">☕</div>
+        <div class="nav-logo-text">
+          <span>The Urban</span>
+          Alchemist
+        </div>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#menu" class="active">Menu</a>
+        <a href="#sanctuary">Workspace</a>
+        <a href="#location">Location</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#order">Order</a>
+      </div>
+
+      <a href="#order" class="nav-order-btn">Order Now</a>
+
+      <div class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ FLOATING CART ═══════════════════ -->
+  <div class="cart-fab" id="cartFab" aria-label="Open cart" style="display:none;">
+    <span class="cart-fab-icon">🛒</span>
+    <span class="cart-fab-count" id="cartFabCount">0</span>
+    <div class="cart-fab-summary" id="cartFabSummary">View Cart</div>
+  </div>
+
+  <div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer-panel">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title">Your Order</h3>
+        <button class="cart-drawer-close" id="cartClose" aria-label="Close cart">✕</button>
+      </div>
+      <div class="cart-drawer-items" id="cartItems">
+        <p class="cart-empty-msg">Your cart is empty.<br>Add something delicious! ☕</p>
+      </div>
+      <div class="cart-drawer-footer" id="cartFooter" style="display:none;">
+        <div class="cart-total-row">
+          <span>Subtotal</span>
+          <span class="cart-total-amount" id="cartTotal">₹0</span>
+        </div>
+        <a href="https://wa.me/919032045678?text=Hi!%20I'd%20like%20to%20place%20an%20order" target="_blank" class="btn-place-order">Place Order via WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#menu" onclick="closeMobileNav()">Menu</a>
+    <a href="#sanctuary" onclick="closeMobileNav()">Workspace</a>
+    <a href="#location" onclick="closeMobileNav()">Location</a>
+    <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
+    <a href="#order" onclick="closeMobileNav()">Order Now</a>
+  </div>
+
+
+  <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="images/hero-main.jpg" alt="Premium coffee at The Urban Alchemist" loading="eager">
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        OPEN RIGHT NOW
+      </div>
+
+      <h1 class="hero-title">
+        Open <span class="highlight">24x7</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Premium coffee &amp; food, ready around the clock in Madhapur.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#order" class="btn btn-primary hero-btn-order" id="hero-order-btn">Order Now →</a>
+        <a href="#menu" class="btn btn-ghost hero-btn-menu" id="hero-menu-btn">View Menu</a>
+      </div>
+
+      <div class="hero-urgency" id="hero-urgency">
+        <span class="urgency-dot"></span>
+        ⚡ Serving in 10 mins · Free pickup at store
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ MENU SECTION ═══════════════════ -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="menu-header reveal">
+        <p class="section-label">Winter Signatures</p>
+        <h2 class="section-title">Midnight<br>Essentials</h2>
+      </div>
+    </div>
+
+    <!-- Sticky category bar -->
+    <div class="menu-sticky-bar" id="menuStickyBar">
+      <div class="container">
+        <div class="menu-categories" id="menuCategories">
+          <button class="menu-cat-btn active" data-category="all">All</button>
+          <button class="menu-cat-btn" data-category="coffee">☕ Coffee</button>
+          <button class="menu-cat-btn" data-category="tea">🍵 Tea</button>
+          <button class="menu-cat-btn" data-category="food">🥪 Food</button>
+          <button class="menu-cat-btn" data-category="pastry">🥐 Pastry</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- Card 1 — Alchemist Latte (BESTSELLER) -->
+        <div class="menu-card reveal bestseller-card" data-category="coffee"
+             data-id="alchemist-latte" data-name="Alchemist Latte" data-price="220">
+          <div class="bestseller-ribbon">🏆 Bestseller</div>
+          <div class="menu-card-img-wrap"><img src="images/barista-neon.jpg" alt="Alchemist Latte" class="menu-card-img" loading="lazy"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Alchemist Latte</h3>
+              <span class="menu-card-price">₹220</span>
+            </div>
+            <p class="menu-card-desc">Signature house blend with velvety oat milk and caramelised jaggery.</p>
+            <div class="menu-card-actions">
+              <div class="qty-selector" id="qty-alchemist-latte" style="display:none;">
+                <button class="qty-btn qty-minus" aria-label="Decrease">−</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn qty-plus" aria-label="Increase">+</button>
+              </div>
+              <button class="btn-add-to-cart" data-id="alchemist-latte">+ Add &nbsp;<span class="btn-price">₹220</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — Obsidian Nitro -->
+        <div class="menu-card reveal" data-category="coffee"
+             data-id="obsidian-nitro" data-name="Obsidian Nitro" data-price="280">
+          <span class="menu-card-label-badge staff">⭐ Staff Pick</span>
+          <div class="menu-card-img-wrap"><img src="images/nitro-cold-brew.png" alt="Obsidian Nitro Cold Brew" class="menu-card-img" loading="lazy"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Obsidian Nitro</h3>
+              <span class="menu-card-price">₹280</span>
+            </div>
+            <p class="menu-card-desc">Nitrogen-infused cold brew — silky smooth with bold cocoa &amp; toffee notes.</p>
+            <div class="menu-card-actions">
+              <div class="qty-selector" id="qty-obsidian-nitro" style="display:none;">
+                <button class="qty-btn qty-minus" aria-label="Decrease">−</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn qty-plus" aria-label="Increase">+</button>
+              </div>
+              <button class="btn-add-to-cart" data-id="obsidian-nitro">+ Add &nbsp;<span class="btn-price">₹280</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 — Midnight Pastry -->
+        <div class="menu-card reveal" data-category="pastry"
+             data-id="midnight-pastry" data-name="Midnight Pastry" data-price="160">
+          <div class="menu-card-img-wrap"><img src="images/midnight-pastry.png" alt="Midnight Chocolate Pastry" class="menu-card-img" loading="lazy"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Midnight Pastry</h3>
+              <span class="menu-card-price">₹160</span>
+            </div>
+            <p class="menu-card-desc">Dark almond-cocoa pralinoise croissant, baked fresh every 4 hours, 24×7.</p>
+            <div class="menu-card-actions">
+              <div class="qty-selector" id="qty-midnight-pastry" style="display:none;">
+                <button class="qty-btn qty-minus" aria-label="Decrease">−</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn qty-plus" aria-label="Increase">+</button>
+              </div>
+              <button class="btn-add-to-cart" data-id="midnight-pastry">+ Add &nbsp;<span class="btn-price">₹160</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 — Classic Cappuccino -->
+        <div class="menu-card reveal" data-category="coffee"
+             data-id="classic-cappuccino" data-name="Classic Cappuccino" data-price="190">
+          <div class="menu-card-img-wrap"><img src="images/cappuccino.png" alt="Classic Cappuccino" class="menu-card-img" loading="lazy"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Classic Cappuccino</h3>
+              <span class="menu-card-price">₹190</span>
+            </div>
+            <p class="menu-card-desc">Perfectly balanced espresso with steamed milk and thick velvety foam.</p>
+            <div class="menu-card-actions">
+              <div class="qty-selector" id="qty-classic-cappuccino" style="display:none;">
+                <button class="qty-btn qty-minus" aria-label="Decrease">−</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn qty-plus" aria-label="Increase">+</button>
+              </div>
+              <button class="btn-add-to-cart" data-id="classic-cappuccino">+ Add &nbsp;<span class="btn-price">₹190</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 — Masala Chai -->
+        <div class="menu-card reveal" data-category="tea"
+             data-id="masala-chai" data-name="Masala Chai" data-price="120">
+          <span class="menu-card-label-badge fav">❤️ Local Fav</span>
+          <div class="menu-card-img-wrap"><img src="images/masala-chai.png" alt="Masala Chai" class="menu-card-img" loading="lazy"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Masala Chai</h3>
+              <span class="menu-card-price">₹120</span>
+            </div>
+            <p class="menu-card-desc">Robust Assam tea with cardamom, ginger, cinnamon, and whole spices.</p>
+            <div class="menu-card-actions">
+              <div class="qty-selector" id="qty-masala-chai" style="display:none;">
+                <button class="qty-btn qty-minus" aria-label="Decrease">−</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn qty-plus" aria-label="Increase">+</button>
+              </div>
+              <button class="btn-add-to-cart" data-id="masala-chai">+ Add &nbsp;<span class="btn-price">₹120</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 — Paneer Tikka Melt -->
+        <div class="menu-card reveal" data-category="food"
+             data-id="paneer-tikka-melt" data-name="Paneer Tikka Melt" data-price="220">
+          <span class="menu-card-label-badge chef">👨‍🍳 Chef's Special</span>
+          <div class="menu-card-img-wrap"><img src="images/menu-display.jpg" alt="Paneer Tikka Melt" class="menu-card-img" loading="lazy"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Paneer Tikka Melt</h3>
+              <span class="menu-card-price">₹220</span>
+            </div>
+            <p class="menu-card-desc">Grilled paneer, capsicum, onions &amp; melted cheese on multigrain bread.</p>
+            <div class="menu-card-actions">
+              <div class="qty-selector" id="qty-paneer-tikka-melt" style="display:none;">
+                <button class="qty-btn qty-minus" aria-label="Decrease">−</button>
+                <span class="qty-count">1</span>
+                <button class="qty-btn qty-plus" aria-label="Increase">+</button>
+              </div>
+              <button class="btn-add-to-cart" data-id="paneer-tikka-melt">+ Add &nbsp;<span class="btn-price">₹220</span></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SANCTUARY / WORKSPACE SECTION ═══════════════════ -->
+  <section class="sanctuary" id="sanctuary">
+    <div class="container">
+
+      <!-- Section header -->
+      <div class="sanctuary-header reveal">
+        <p class="section-label">Workspace</p>
+        <h2 class="section-title">Your 24×7<br>Remote Office</h2>
+        <p class="sanctuary-tagline">Everything a professional needs. All night, every night.</p>
+      </div>
+
+      <!-- Two-column layout: image + cards -->
+      <div class="sanctuary-layout reveal">
+
+        <!-- Left: café image -->
+        <div class="sanctuary-img-wrap">
+          <img src="images/workspace-balcony.jpg" alt="The Urban Sanctuary workspace" class="sanctuary-img" loading="lazy">
+          <div class="sanctuary-img-badge">
+            <span class="dot"></span> Seats available now
+          </div>
+        </div>
+
+        <!-- Right: feature micro-cards + CTA -->
+        <div class="sanctuary-right">
+          <div class="sanctuary-cards-grid">
+
+            <div class="s-card">
+              <div class="s-card-icon">⚡</div>
+              <div class="s-card-label">Gigabit WiFi</div>
+              <div class="s-card-sub">Mesh broadband, zero lag</div>
+            </div>
+
+            <div class="s-card">
+              <div class="s-card-icon">🔌</div>
+              <div class="s-card-label">Power Everywhere</div>
+              <div class="s-card-sub">USB-C &amp; AC at every seat</div>
+            </div>
+
+            <div class="s-card">
+              <div class="s-card-icon">🎧</div>
+              <div class="s-card-label">Quiet Zones</div>
+              <div class="s-card-sub">Acoustic panels, no noise</div>
+            </div>
+
+            <div class="s-card">
+              <div class="s-card-icon">📹</div>
+              <div class="s-card-label">Call Booths</div>
+              <div class="s-card-sub">Private video call spots</div>
+            </div>
+
+            <div class="s-card">
+              <div class="s-card-icon">☕</div>
+              <div class="s-card-label">Bottomless Chai</div>
+              <div class="s-card-sub">Refills while you work</div>
+            </div>
+
+            <div class="s-card">
+              <div class="s-card-icon">📅</div>
+              <div class="s-card-label">Open 24×7</div>
+              <div class="s-card-sub">No closing time, ever</div>
+            </div>
+
+          </div>
+
+          <a href="#location" class="btn-find-seat">
+            Find a Seat Now →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ BREWED WITH PASSION ═══════════════════ -->
+  <section class="passion" id="passion">
+    <div class="container">
+      <div class="passion-card reveal">
+        <img src="images/cafe-greenery.jpg" alt="Coffee plants and decor at The Urban Alchemist" loading="lazy">
+        <div class="passion-overlay">
+          <p class="passion-label">Our Story</p>
+          <h2 class="passion-title">Brewed With<br>Passion</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ LOCATION SECTION ═══════════════════ -->
+  <section class="location" id="location">
+    <div class="container">
+
+      <!-- Header row -->
+      <div class="location-header reveal">
+        <p class="section-label">Find Us</p>
+        <h2 class="section-title">Come In Anytime.<br>We’re Always On.</h2>
+      </div>
+
+      <div class="location-content reveal">
+
+        <!-- Map -->
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.548!2d78.3867!3d17.4435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9158f2b34753%3A0xeaef87ebd3e45605!2sMadhapur%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1711700000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="The Urban Alchemist location on Google Maps">
+          </iframe>
+          <!-- Travel time chip over map -->
+          <div class="loc-map-chip">🚗 ~5 mins from HITEC City</div>
+        </div>
+
+        <!-- Info panel -->
+        <div class="location-info">
+
+          <!-- 24x7 pill — most important fact -->
+          <div class="loc-open-badge">
+            <span class="loc-open-dot"></span>
+            Open right now &mdash; and every night &mdash; 24&times;7
+          </div>
+
+          <!-- Address block -->
+          <div class="loc-address-block">
+            <div class="loc-address-icon">📍</div>
+            <div>
+              <div class="loc-address-main">4-23 Madhapur Avenue</div>
+              <div class="loc-address-sub">Ayyappa Society, Madhapur &middot; Hyderabad 500081</div>
+            </div>
+          </div>
+
+          <!-- Quick-scan travel chips -->
+          <div class="loc-chips-row">
+            <div class="loc-chip">
+              <span class="loc-chip-icon">🚇</span>
+              <span>Metro: <strong>5-min walk</strong> from Madhapur Stn</span>
+            </div>
+            <div class="loc-chip">
+              🚗 <span><strong>5 mins</strong> from HITEC City</span>
+            </div>
+            <div class="loc-chip">
+              🛵  <span><strong>2 mins</strong> by cab from Cyber Towers</span>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <a href="tel:+919032045678" class="loc-phone-link">
+            📞&nbsp; +91&nbsp;90320&nbsp;45678
+          </a>
+
+          <!-- PRIMARY CTA -->
+          <a href="https://maps.google.com/?q=Madhapur+Hyderabad" target="_blank" rel="noopener" class="btn-directions-primary" id="btn-get-directions">
+            📍&nbsp; Get Directions
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ ORDER SECTION ═══════════════════ -->
+  <section class="order" id="order">
+    <div class="container">
+
+      <div class="order-header reveal">
+        <p class="section-label">Order Online</p>
+        <h2 class="section-title">Delivered to You.<br>In 30 Minutes.</h2>
+        <p class="order-subhead">Choose your platform &mdash; your food starts the moment you tap.</p>
+      </div>
+
+      <div class="order-cards-row reveal">
+
+        <!-- Zomato -->
+        <a href="https://www.zomato.com" target="_blank" rel="noopener"
+           class="order-card-v2" id="order-zomato" aria-label="Order on Zomato">
+          <div class="oc-top">
+            <div class="oc-logo zomato-logo">Z</div>
+            <div class="oc-trust">
+              <span class="oc-rating">★ 4.5</span>
+              <span class="oc-reviews">2.1k reviews</span>
+            </div>
+          </div>
+          <div class="oc-platform">Zomato</div>
+          <div class="oc-meta-row">
+            <span class="oc-badge delivery">🛵 ~28 min delivery</span>
+          </div>
+          <div class="oc-cta">Order Now <span class="oc-arrow">→</span></div>
+        </a>
+
+        <!-- Swiggy -->
+        <a href="https://www.swiggy.com" target="_blank" rel="noopener"
+           class="order-card-v2" id="order-swiggy" aria-label="Order on Swiggy">
+          <div class="oc-top">
+            <div class="oc-logo swiggy-logo">S</div>
+            <div class="oc-trust">
+              <span class="oc-rating">★ 4.4</span>
+              <span class="oc-reviews">1.8k reviews</span>
+            </div>
+          </div>
+          <div class="oc-platform">Swiggy</div>
+          <div class="oc-meta-row">
+            <span class="oc-badge delivery">🛵 ~32 min delivery</span>
+          </div>
+          <div class="oc-cta">Order Now <span class="oc-arrow">→</span></div>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/919032045678?text=Hi!%20I'd%20like%20to%20place%20an%20order"
+           target="_blank" rel="noopener"
+           class="order-card-v2 whatsapp-card" id="order-whatsapp" aria-label="Order on WhatsApp">
+          <div class="oc-top">
+            <div class="oc-logo whatsapp-logo">💬</div>
+            <div class="oc-trust">
+              <span class="oc-badge instant">Instant reply</span>
+            </div>
+          </div>
+          <div class="oc-platform">WhatsApp</div>
+          <div class="oc-meta-row">
+            <span class="oc-badge pickup">🏪 Pickup ready in 10 min</span>
+          </div>
+          <div class="oc-cta">Chat to Order <span class="oc-arrow">→</span></div>
+        </a>
+
+      </div>
+
+      <!-- Trust strip -->
+      <div class="order-trust-strip reveal">
+        <span>🔒 Secure checkout</span>
+        <span class="trust-sep">&bull;</span>
+        <span>⭐ 4.5 avg across platforms</span>
+        <span class="trust-sep">&bull;</span>
+        <span>📦 2,000+ orders this month</span>
+        <span class="trust-sep">&bull;</span>
+        <span>⌚ 24&times;7 available</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+  <section class="testimonial" id="testimonials">
+    <div class="container">
+      <div class="testimonial-card reveal" id="testimonialCard">
+        <div class="testimonial-stars" aria-label="5 star rating">
+          ★ ★ ★ ★ ★
+        </div>
+        <p class="testimonial-quote" id="testimonialQuote">
+          "The only place in the city where midnight feels like mid-afternoon. The <span class="highlight">Nitro Cold Brew is life-changing.</span>"
+        </p>
+        <p class="testimonial-author" id="testimonialAuthor">Aadhav K.</p>
+        <p class="testimonial-role" id="testimonialRole">Verified regular · Software Engineer</p>
+        <div class="testimonial-dots" id="testimonialDots">
+          <span class="testimonial-dot active" data-index="0"></span>
+          <span class="testimonial-dot" data-index="1"></span>
+          <span class="testimonial-dot" data-index="2"></span>
+          <span class="testimonial-dot" data-index="3"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">The Urban Alchemist</div>
+          <p class="footer-brand-desc">
+            Elevating the urban coffee experience through artisanal roasting and 24x7 accessibility. We don't just serve coffee, we craft moments.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Instagram">📷</a>
+            <a href="#" class="footer-social-link" aria-label="Twitter / X">✕</a>
+            <a href="#" class="footer-social-link" aria-label="YouTube">▶</a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigate</h4>
+            <a href="#menu">Menu</a>
+            <a href="#sanctuary">Workspace</a>
+            <a href="#location">Location</a>
+            <a href="#testimonials">Reviews</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Contact</h4>
+            <p>+91 90320 45678</p>
+            <p>hello@urbanalchemist.in</p>
+            <a href="#location">Madhapur, Hyderabad</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FSSAI License</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 The Urban Alchemist. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
